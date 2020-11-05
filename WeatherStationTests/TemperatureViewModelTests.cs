@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac.Extras.Moq;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -28,13 +29,12 @@ namespace WeatherStationTests
         [InlineData(100, 212)]
         public void CelsiusInFahrenheit_AlwaysReturnGoodValue(double C, double expected)
         {
-            // Arrange
+            TemperatureViewModel model = new TemperatureViewModel();
 
-            // Act       
+            double actual = model.CelsiusInFahrenheit(C);
 
-            // Assert
+            Assert.Equal(expected, actual);
 
-            /// TODO : git commit -a -m "T01 CelsisInFahrenheit_AlwaysReturnGoodValue : Done"
         }
 
         /// <summary>
