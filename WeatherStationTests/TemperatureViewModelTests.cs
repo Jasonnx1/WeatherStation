@@ -52,11 +52,11 @@ namespace WeatherStationTests
         [InlineData(212, 100)]
         public void FahrenheitInCelsius_AlwaysReturnGoodValue(double F, double expected)
         {
-            // Arrange
+            TemperatureViewModel model = new TemperatureViewModel();
 
-            // Act       
+            double actual = model.FahrenheitInCelsius(F);
 
-            // Assert
+            Assert.Equal(expected, actual);
 
             /// TODO : git commit -a -m "T02 FahrenheitInCelsius_AlwaysReturnGoodValue : Done"
         }

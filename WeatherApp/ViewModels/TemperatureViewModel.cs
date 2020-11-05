@@ -22,7 +22,7 @@ namespace WeatherApp.ViewModels
         public double FahrenheitInCelsius(double f)
         {
 
-            double c = (f - 32) * (5 / 9);
+            double c = (f - 32) / 1.8;
             c = Math.Round(c, 1);
             return c;
 
