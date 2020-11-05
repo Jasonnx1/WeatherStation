@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Text;
 using WeatherApp.ViewModels;
 using Xunit;
+using Xunit.Sdk;
 
 namespace WeatherStationTests
 {
@@ -58,7 +59,6 @@ namespace WeatherStationTests
 
             Assert.Equal(expected, actual);
 
-            /// TODO : git commit -a -m "T02 FahrenheitInCelsius_AlwaysReturnGoodValue : Done"
         }
 
         /// <summary>
@@ -84,11 +84,11 @@ namespace WeatherStationTests
         [Fact]
         public void CanGetTemp_WhenServiceIsNull_ReturnsFalse()
         {
-            // Arrange
+            TemperatureViewModel temp = new TemperatureViewModel();
+            bool expected = false;
 
-            // Act       
-
-            // Assert
+            Assert.Equal(temp.CanGetTemp(new object()), expected);
+            
 
             /// TODO : git commit -a -m "T04 CanGetTemp_WhenServiceIsNull_ReturnsFalse : Done"
         }
