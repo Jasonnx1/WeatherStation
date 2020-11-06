@@ -29,6 +29,11 @@ namespace WeatherApp.ViewModels
             
         }
 
+        public void SetTemperatureService(ITemperatureService temp)
+        {
+            TemperatureService = temp;
+        }
+
         public void GetTemp(object o)
         {
             if(TemperatureService != null)
@@ -44,7 +49,7 @@ namespace WeatherApp.ViewModels
         }
         public bool CanGetTemp(object o)
         {
-            return CurrentTemp != null ? true : false;
+            return TemperatureService != null ? true : false;
         }
 
         public double FahrenheitInCelsius(double f)

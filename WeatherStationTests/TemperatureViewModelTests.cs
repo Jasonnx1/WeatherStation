@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
+using WeatherApp.Models;
+using WeatherApp.Services;
 using WeatherApp.ViewModels;
 using Xunit;
 using Xunit.Sdk;
@@ -90,10 +93,8 @@ namespace WeatherStationTests
             TemperatureViewModel temp = new TemperatureViewModel();
             bool expected = false;
 
-            Assert.Equal(temp.CanGetTemp(new object()), expected);
+            Assert.Equal(temp.CanGetTemp(""), expected);
             
-
-            /// TODO : git commit -a -m "T04 CanGetTemp_WhenServiceIsNull_ReturnsFalse : Done"
         }
 
         /// <summary>
@@ -103,11 +104,16 @@ namespace WeatherStationTests
         [Fact]
         public void CanGetTemp_WhenServiceIsSet_ReturnsTrue()
         {
-            // Arrange
 
-            // Act       
+            TemperatureViewModel temp = new TemperatureViewModel();
 
-            // Assert
+            temp.SetTemperatureService(new tempClass());
+
+            var expected = true;
+            var actual = temp.CanGetTemp("");
+
+            Assert.Equal(expected, actual);
+
 
             /// TODO : git commit -a -m "T05 CanGetTemp_WhenServiceIsSet_ReturnsTrue : Done"
         }
@@ -153,6 +159,14 @@ namespace WeatherStationTests
         public void Dispose()
         {
             // Nothing to here, just for Testing standards
+        }
+
+        class tempClass : ITemperatureService
+        {
+            public Task<TemperatureModel> GetTempAsync()
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
