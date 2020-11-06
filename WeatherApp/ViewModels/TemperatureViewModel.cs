@@ -38,7 +38,7 @@ namespace WeatherApp.ViewModels
         {
             if(TemperatureService != null)
             {
-
+                CurrentTemp = new TemperatureModel();
             }
             else
             {

@@ -1,4 +1,5 @@
 ﻿using Autofac.Extras.Moq;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -139,15 +140,23 @@ namespace WeatherStationTests
         [Fact]
         public void GetTempCommand_HaveCurrentTempWhenExecuted_ShouldPass()
         {
-            // Arrange
 
-            // Act       
+            TemperatureViewModel temp = new TemperatureViewModel();
 
-            // Assert
+            temp.CurrentTemp = new TemperatureModel();
+
+            temp.SetTemperatureService(new tempClass());
+
+            temp.GetTempCommand.Execute("");
+
+            Assert.NotNull(temp.CurrentTemp);
+
+            
 
             /// TODO : git commit -a -m "T07 GetTempCommand_HaveCurrentTempWhenExecuted_ShouldPass : Done"
         }
 
+        
         /// <summary>
         /// Ne touchez pas à ça, c'est seulement pour respecter les standards
         /// de test qui veulent que la classe de tests implémente IDisposable
