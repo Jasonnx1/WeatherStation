@@ -114,8 +114,6 @@ namespace WeatherStationTests
 
             Assert.Equal(expected, actual);
 
-
-            /// TODO : git commit -a -m "T05 CanGetTemp_WhenServiceIsSet_ReturnsTrue : Done"
         }
 
         /// <summary>
@@ -125,11 +123,11 @@ namespace WeatherStationTests
         [Fact]
         public void SetTemperatureService_WhenExecuted_TemperatureServiceIsNotNull()
         {
-            // Arrange
+            TemperatureViewModel temp = new TemperatureViewModel();
 
-            // Act       
+            temp.SetTemperatureService(new tempClass());
 
-            // Assert
+            Assert.NotNull(temp.TemperatureService);
 
             /// TODO : git commit -a -m "T06 SetTemperatureService_WhenExecuted_TemperatureServiceIsNotNull : Done"
         }
